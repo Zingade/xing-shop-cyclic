@@ -1,0 +1,261 @@
+.Level {
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  
+    .level-item {
+      display: flex;
+      flex-direction: column;
+      width: calc(25%);
+  
+      & > * {
+        align-self: center;
+      }
+    }
+  
+    h1 {
+      font-size:large;
+      font-weight: 600;
+      margin-bottom: 5;
+      margin-top: 0;
+    }
+  
+    h4 {
+      font-size:15px;
+      margin-bottom: 5;
+      margin-top: 5;
+    }
+  
+    h5 {
+      margin-bottom: 0;
+      margin-top: 5;
+    }
+  
+    .is-monthly_currentYear {
+      h1,
+      h5 {
+        color: #ff073a;
+      }
+  
+      h4 {
+        color: #ff073a99;
+      }
+    }
+  
+    .is-overall_currentYear {
+      h1,
+      h5 {
+        color: #007bff;
+      }
+  
+      h4 {
+        color: #007bff99;
+      }
+    }
+  
+    .is-monthly_lastYear {
+      h1,
+      h5 {
+        color: #28a745;
+      }
+  
+      h4 {
+        color: #28a74599;
+      }
+    }
+  
+    .is-overall_lastYear {
+      h1,
+      h5 {
+        color: #6c757d;
+      }
+  
+      h4 {
+        color: #6c757d99;
+      }
+    }
+  }
+  
+  .LevelLineItem {
+    background: #db558120;
+    border-radius: 5px;
+    color: #db5581;
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+    padding: 0.5rem;
+    text-align: center;
+
+    h4 {
+      font-size:small;
+      margin: 0 0 0 0.5rem;
+      text-align: center;
+    }
+  }
+
+  .Home1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  
+    .home-left {
+      display: flex;
+      flex-direction: column;
+      width: 375px;
+      min-height: 60rem;
+    }
+  
+    .header {
+      z-index: 99;
+    }
+  }
+    
+  .table-container {
+    align-self: center;
+    margin-bottom: 2.5rem;
+    overflow-x: auto;
+    width: 100%;
+  }
+  
+  .table {
+    border-radius: 3px;
+    display: inline-grid;
+    font-size: 12px;
+    grid-template-rows: auto;
+    min-width: 100%;
+
+   .row {
+    cursor: pointer;
+    display: contents;
+    width: 100%;
+
+    &:nth-child(odd) {
+      .cell {
+        background: #6c757d10;
+      }
+    }
+
+    &.is-highlighted {
+      .cell {
+        background: #edeeef !important;
+      }
+    }
+
+    &.heading {
+      .cell {
+        cursor: pointer;
+        user-select: none;
+
+        &:hover {
+          background: #edeeef !important;
+        }
+      }
+    }
+
+    &.is-total {
+      position: sticky;
+      top: 0;
+
+      .cell {
+        background: #edeeef !important;
+      }
+    }
+
+    .cell {
+      align-items: center;
+      border-radius: 3px;
+      color: #6c757d;
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 0.25rem;
+      padding: 0.5rem;
+      position: relative;
+
+      &:not(:first-child) {
+        flex-basis: 4rem;
+        flex-grow: 1;
+        flex-shrink: 0;
+        justify-content: flex-end;
+      }
+
+      &:first-child {
+        background: #f6f6f7;
+        flex-basis: 7rem;
+        flex-grow: 0;
+        flex-shrink: 0;
+        justify-content: space-between;
+        left: 0;
+        position: sticky;
+        z-index: 11;
+
+        .sort-icon {
+          left: unset;
+          right: 0;
+        }
+      }
+
+      &.statistic {
+        align-items: flex-end;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        .total {
+          font-size: 14px;
+        }
+
+        .is-zing_cc,
+        .is-zing_expenses,
+        .is-monthly_currentYear {
+          color: #ff073a;
+        }
+
+        .is-zing_hdfc,
+        .is-pinky_expenses,
+        .is-monthly_lastYear {
+          color: #28a745;
+        }
+
+        .is-zing_current,
+        .is-saket_expenses,
+        .is-recursive {
+          color: #007bff;
+        }
+
+        .is-pinky-hdfc,
+        .is-onetime {
+          color: #6c757d;
+        }
+
+        .is-pinky_canara,
+        .is-stuti_expenses,
+        .is-must{
+          color: #201aa2dd;
+        }
+        .is-family_expenses,
+        .is-nice {
+          color: #db5581;
+        }
+      }
+      &.heading {
+        background: #f6f6f7;
+        font-size: 13px;
+        font-weight: 900;
+        padding: 1.25rem 0.5rem 0.75rem;
+
+        &:hover {
+          background: #edeeef !important;
+        }
+      }
+
+      .expense-name{
+        font-size: 14px;
+        font-weight: 600;
+        max-width: 7rem;
+        word-wrap: break-word;
+      }
+    }
+  }
+} 
