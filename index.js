@@ -14,8 +14,18 @@ const mutualFundRoute = require('./routes/mutualFundRoute')
 
 const port = process.env.PORT || 5000;
 const mongodbUrl = process.env.MONGODB_URL || 'mongodb://localhost/xing-shop';
-mongoose.connect(mongodbUrl,{ useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true })
-.catch(error => console.log(error.reason));
+
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(mongodbUrl);
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+}
+//mongoose.connect(mongodbUrl,{ useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true })
+//.catch(error => console.log(error.reason));
 
 const app = express();
 
@@ -32,7 +42,7 @@ app.use('/uploads', express.static(path.join(__dirname, '/../uploads')));
 app.use(express.static(path.join(__dirname, './frontend/build')))
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, './frontend/build/index.html')))
 
-
-app.listen(port, () => {
+  connectDB().then(() => {
+    app.listen(port, () => {
     console.log(`xingShop Backend is listening at http://localhost:${port}`)
-  })
+  })})
