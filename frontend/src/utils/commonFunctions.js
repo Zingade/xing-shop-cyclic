@@ -93,7 +93,7 @@ export const capitalizeCustom = (s) => {
   summaryExpense.total.overall_currentYear = expenses
                           .filter((expense) => {return expense.expenseDate >= startOfCurrentYearString && expense.expenseDate <= endOfCurrentYearString;})
                           .reduce((a,c) => a + 1 * c.amount, 0)
-  summaryExpense.availableBalance = ((4431 * Difference_In_Time)/(1000 * 3600 * 24)) - summaryExpense.total.overall_currentYear; 
+  summaryExpense.availableBalance = ((4908 * Difference_In_Time)/(1000 * 3600 * 24)) - summaryExpense.total.overall_currentYear; 
   summaryExpense.delta.overall_currentYear = summaryExpense.total.overall_currentYear / Difference_In_Months;  
   summaryExpense.total.monthly_lastYear = expenses
                           .filter((expense) => {return expense.expenseDate >= startOfPreviousYearString && expense.expenseDate <= endOfPreviousYearString && expense.frequency === "Monthly";})
