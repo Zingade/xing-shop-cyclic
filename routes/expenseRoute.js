@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     const orderFor = req.query.orderFor ? { orderFor: req.query.orderFor } : {};
     const startDate = req.query.startDate ? new Date(req.query.startDate) : '';
     const endDate = req.query.endDate ? new Date(req.query.endDate) : '';
-    const expenseDate = (req.query.startDate || req.query.endDate)? {expenseDate:{$gte:startDate.toISOString().substring(0,10), $lte:endDate.toISOString().substring(0,10)}}:{} 
+    const expenseDate = (req.query.startDate || req.query.endDate)? {expenseDate:{$gte:startDate.toISOString(), $lte:endDate.toISOString()}}:{} 
     const expenses = await Expense.find({
         ...category,...frequency,...occurance,...requiredType,...orderFor,...expenseDate
     }).sort({"_id":-1});

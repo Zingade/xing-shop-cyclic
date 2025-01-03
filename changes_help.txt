@@ -1,0 +1,24 @@
+Latest code
+D:\MyCode\cyclic\xing-shop-cyclic
+Open in Visual Studio code
+search for "availableBalance"
+Change to current value 
+save
+root folder run
+npm start
+go to frontend folder
+npm run build
+npm start
+
+test the application
+If all okay
+
+go to root and give below git commands
+git status
+git add .
+git commit -m "2024 year added"
+git push
+
+Then go to cyclic app site
+then Deploy new
+then test

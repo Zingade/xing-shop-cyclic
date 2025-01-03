@@ -31,6 +31,8 @@ function ExpenseScreen(props) {
     const [isOccuranceTypeChecked, setOccuranceTypeIsChecked] = useState(false);
     const [isFrequencyChecked, setFrequencyIsChecked] = useState(false);
     const [isShowFilterChecked, setShowFilterIsChecked] = useState(false);
+    const defaultEndQueryDate = new Date();
+    const defaultStartQuesyPreviousYearString = new Date(`${defaultEndQueryDate.getFullYear()-1}-01-01T11:00:00.000+00:00`);
 
     const expenseList = useSelector(state=>state.expenseList);
     const {loading, expenses, error} = expenseList;
@@ -44,7 +46,7 @@ function ExpenseScreen(props) {
         if(successSave){
             setModalVisible(false);
         }
-        dispatch(listExpenses());
+        dispatch(listExpenses('',defaultStartQuesyPreviousYearString,defaultEndQueryDate));
         return () =>{
         };
     }, [successSave,successDelete]);
